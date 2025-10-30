@@ -1,3 +1,34 @@
+## Lending System (Next.js App Router)
+
+This is a Next.js 16 App Router project scaffolded with Tailwind CSS and ESLint.
+
+### Requirements
+- Node.js 18.17+ (or 20+ recommended)
+- npm 9+
+
+### Getting Started
+```bash
+npm install
+npm run dev
+```
+App will be available at `http://localhost:3000`.
+
+### Build for Production
+```bash
+npm run build
+npm run start
+```
+
+### Lint
+```bash
+npm run lint
+```
+
+### Tech Stack
+- Next.js App Router
+- Tailwind CSS
+- ESLint (next/core-web-vitals)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
