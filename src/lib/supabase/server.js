@@ -1,6 +1,6 @@
 'use server'
 
-import { createClient } from '@supabase/supabase-js'
+import { createServerClient as createSupabaseServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
@@ -13,10 +13,24 @@ if (!supabaseUrl || !supabaseAnonKey) {
 export async function createServerClient() {
   const cookieStore = await cookies()
   
-  return createClient(supabaseUrl, supabaseAnonKey, {
+  return createSupabaseServerClient(supabaseUrl, supabaseAnonKey, {
     cookies: {
       get(name) {
         return cookieStore.get(name)?.value
+      },
+      set(name, value, options) {
+        try {
+          cookieStore.set(name, value, options)
+        } catch (error) {
+          // Handle cookie errors gracefully (e.g., in middleware)
+        }
+      },
+      remove(name, options) {
+        try {
+          cookieStore.set(name, '', { ...options, maxAge: 0 })
+        } catch (error) {
+          // Handle cookie errors gracefully
+        }
       },
     },
   })

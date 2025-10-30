@@ -23,7 +23,7 @@ A modern, scalable web application built with Next.js for managing internal expe
 - **Backend**: Next.js Server Actions (primary) + API Routes (external)
 - **Business Logic**: json-rules-engine
 - **Database**: Supabase (PostgreSQL)
-- **Authentication**: Supabase Auth (SSO/Magic Link support)
+- **Authentication**: Supabase Auth with @supabase/ssr package
 - **Deployment**: Vercel-ready
 
 ## Getting Started
@@ -252,6 +252,13 @@ Environment variables needed:
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `API_KEY`
+
+### Required Packages
+
+This project uses `@supabase/ssr` for proper authentication handling with Next.js 16:
+```bash
+npm install @supabase/ssr
+```
 
 ## Contributing
 

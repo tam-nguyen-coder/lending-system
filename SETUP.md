@@ -6,6 +6,7 @@ This guide will walk you through setting up the Internal Approval System.
 
 1. Node.js 18+ installed
 2. A Supabase account (sign up at https://supabase.com)
+3. Git (for cloning the repository)
 
 ## Step 1: Clone and Install
 
@@ -17,6 +18,8 @@ cd lending-system
 # Install dependencies
 npm install
 ```
+
+**Note:** This project uses `@supabase/ssr` for proper authentication session management with Next.js 16. It will be installed automatically with the dependencies.
 
 ## Step 2: Set Up Supabase
 
@@ -168,6 +171,8 @@ Event:
 - Check Supabase Authentication settings
 - Ensure email provider is enabled
 - Check your email for the confirmation link
+- Clear browser cookies for localhost:3000
+- Visit `/debug-auth` to check authentication status
 
 ### "Unauthorized" when accessing admin pages
 
