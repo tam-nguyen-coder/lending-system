@@ -239,6 +239,13 @@ Returns:
 - Type safety with JSDoc types
 - Clear error handling in Server Actions
 
+## Documentation
+
+- `requirements.md` - Feature specifications and requirements
+- `technical-guidelines.md` - Development standards and best practices
+- `docs/AUTHENTICATION_FLOW.md` - Comprehensive authentication documentation
+- `SETUP.md` - Step-by-step setup guide
+
 ## Deployment
 
 ### Vercel (Recommended)

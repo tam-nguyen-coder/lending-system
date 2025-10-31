@@ -9,8 +9,13 @@ export async function proxy(request) {
   } = await supabase.auth.getUser()
 
   // Public paths that don't require authentication
-  const publicPaths = ['/login', '/']
+  const publicPaths = ['/login', '/', '/auth/callback']
   const isPublicPath = publicPaths.includes(request.nextUrl.pathname)
+
+  // Allow callback to proceed without auth checks
+  if (request.nextUrl.pathname === '/auth/callback') {
+    return NextResponse.next()
+  }
 
   // If not authenticated and trying to access protected path, redirect to login
   if (!user && !isPublicPath) {
@@ -21,7 +26,7 @@ export async function proxy(request) {
   if (user && request.nextUrl.pathname === '/login') {
     return NextResponse.redirect(new URL('/dashboard', request.url))
   }
-
+  
   // Admin paths protection
   if (request.nextUrl.pathname.startsWith('/admin')) {
     if (!user) {

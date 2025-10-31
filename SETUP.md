@@ -38,8 +38,10 @@ npm install
 
 3. **Configure authentication:**
    - Go to Authentication → Providers
-   - Enable "Email" provider
-   - Optionally enable other providers (Magic Link, OAuth, etc.)
+   - Enable "Email" provider with "Confirm email" option
+   - For Magic Link: Go to Authentication → URL Configuration
+     - Add redirect URLs: `http://localhost:3000/**`
+   - Optionally enable other providers (OAuth, etc.)
 
 ## Step 3: Configure Environment Variables
 
@@ -173,6 +175,14 @@ Event:
 - Check your email for the confirmation link
 - Clear browser cookies for localhost:3000
 - Visit `/debug-auth` to check authentication status
+
+### Magic link not working
+
+- Go to Supabase Dashboard → Authentication → URL Configuration
+- Add redirect URL: `http://localhost:3000/**`
+- For production: Add your production domain
+- Magic links must be opened in the same browser/device where requested
+- Check Authentication → Email Templates to ensure Magic Link template is enabled
 
 ### "Unauthorized" when accessing admin pages
 

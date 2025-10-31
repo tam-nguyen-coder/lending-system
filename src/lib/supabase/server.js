@@ -24,6 +24,7 @@ export async function createServerClient() {
             cookieStore.set(name, value, options)
           })
         } catch (error) {
+          console.error('Error setting cookies:', error)
           // Handle cookie errors gracefully (e.g., in middleware)
         }
       },

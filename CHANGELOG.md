@@ -6,14 +6,21 @@ All notable changes to the Internal Approval System project.
 
 ### Added
 - Initial project setup with Next.js 16
-- Authentication system using Supabase Auth
+- Authentication system using Supabase Auth with `@supabase/ssr`
+  - Email/Password authentication
+  - Magic Link authentication
+  - OAuth callback handling
 - Role-based access control (Employee/Admin)
 - Request submission and management
 - Dynamic rule engine using json-rules-engine
 - Admin dashboard for managing all requests
 - Rule editor for business logic configuration
 - Public API endpoint for external integrations
-- Comprehensive documentation (README, SETUP)
+- Comprehensive documentation:
+  - README.md - Project overview and quick start
+  - SETUP.md - Detailed setup instructions
+  - docs/AUTHENTICATION_FLOW.md - Complete auth documentation
+  - CHANGELOG.md - Version history
 
 ### Fixed
 - **Authentication Session Persistence**: Fixed by implementing `@supabase/ssr` package for proper Next.js 16 compatibility
